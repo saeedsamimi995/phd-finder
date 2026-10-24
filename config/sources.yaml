@@ -1,0 +1,219 @@
+user_agent: "phd-finder/1.0 (personal research job search; contact saeedsamimi995@gmail.com)"
+request_timeout_seconds: 25
+max_pages_per_source: 1
+results_per_page: 50
+
+euraxess:
+  enabled: true
+  base_url: "https://euraxess.ec.europa.eu"
+  search_path: "/jobs/search"
+  # EURAXESS Drupal views JSON-ish listing via HTML scrape
+  keywords_param: keywords
+  country_ids:
+    # Prefer EU + AU; USA excluded in scoring layer
+    DE: "Germany"
+    CH: "Switzerland"
+    LU: "Luxembourg"
+    AT: "Austria"
+    NL: "Netherlands"
+    BE: "Belgium"
+    FR: "France"
+    SE: "Sweden"
+    DK: "Denmark"
+    NO: "Norway"
+    FI: "Finland"
+    IT: "Italy"
+    ES: "Spain"
+    PT: "Portugal"
+    IE: "Ireland"
+    PL: "Poland"
+    CZ: "Czech Republic"
+    AU: "Australia"
+  position_hints:
+    - PhD
+    - Doctoral
+    - Early Stage Researcher
+
+daad:
+  enabled: true
+  # PhDGermany public search
+  search_url: "https://www.phdgermany.de/en/phd-germany-database/search/"
+  api_candidates:
+    - "https://www.daad.de/phdgermany/en/database/"
+    - "https://www.phdgermany.de/en/"
+
+academics_de:
+  enabled: true
+  search_url: "https://www.academics.de/jobs"
+  query_param: q
+  keywords:
+    - Doktorand
+    - Doktorandin
+    - PhD
+    - Promovieren
+    - Machine Learning
+    - Bioinformatik
+    - Künstliche Intelligenz
+
+# Official university pages are searched first and scored above job boards.
+universities:
+  enabled: true
+  sites:
+    - name: University of Stuttgart
+      city: Stuttgart
+      country: Germany
+      urls:
+        - https://www.stellenwerk.de/stuttgart
+        - https://www.vis.uni-stuttgart.de/verschiedenes/stellenangebote/
+        - https://software-lab.org/jobs/PhD_opening.html
+    - name: Karlsruhe Institute of Technology
+      city: Karlsruhe
+      country: Germany
+      urls:
+        - https://jobs.pse.kit.edu/de/jobs/iframe
+    - name: Heidelberg University
+      city: Heidelberg
+      country: Germany
+      urls:
+        - https://www.stellenwerk.de/heidelberg
+        - https://www.dkfz.de/en/career/jobs
+    - name: Ulm University
+      city: Ulm
+      country: Germany
+      urls:
+        - https://www.stellenwerk.de/ulm
+    - name: University of Hohenheim
+      city: Stuttgart
+      country: Germany
+      urls:
+        - https://www.uni-hohenheim.de/stellenangebote
+    - name: ETH Zurich
+      city: Zurich
+      country: Switzerland
+      urls:
+        - https://jobs.ethz.ch/
+    - name: University of Luxembourg
+      city: Luxembourg
+      country: Luxembourg
+      urls:
+        - https://recruitment.uni.lu/en/
+    - name: Max Planck Society
+      city: ""
+      country: Germany
+      urls:
+        - https://www.mpg.de/jobboard
+    - name: Stellenwerk Munich
+      city: Munich
+      country: Germany
+      urls:
+        - https://www.stellenwerk.de/muenchen
+    - name: RWTH Aachen
+      city: Aachen
+      country: Germany
+      urls:
+        - https://www.stellenwerk.de/aachen
+    # National university vacancy sites. These are where universities post, across Europe, Australia, and Canada.
+    - name: University Positions Europe
+      city: ""
+      country: ""
+      urls:
+        - https://universitypositions.eu/jobs?q=phd+machine+learning
+        - https://universitypositions.eu/jobs?q=phd+bioinformatics
+        - https://universitypositions.eu/jobs?q=phd+artificial+intelligence
+    - name: jobs.ac.uk
+      city: ""
+      country: United Kingdom
+      urls:
+        - https://www.jobs.ac.uk/search/?keywords=PhD+machine+learning
+        - https://www.jobs.ac.uk/search/?keywords=PhD+bioinformatics
+    - name: AcademicTransfer
+      city: ""
+      country: Netherlands
+      urls:
+        - https://www.academictransfer.com/en/jobs/?q=phd+machine+learning
+        - https://www.academictransfer.com/en/jobs/?q=promovendus+machine+learning
+        - https://www.academictransfer.com/en/jobs/?q=phd+artificial+intelligence
+        - https://www.academictransfer.com/en/jobs/?q=phd+bioinformatics
+        - https://www.academictransfer.com/en/jobs/?q=phd
+    - name: Wageningen University
+      city: Wageningen
+      country: Netherlands
+      urls:
+        - https://www.wur.nl/en/jobs/phd-jobs
+    - name: Aalto University
+      city: Espoo
+      country: Finland
+      urls:
+        - https://www.aalto.fi/en/open-positions
+    - name: Uppsala University
+      city: Uppsala
+      country: Sweden
+      urls:
+        - https://www.uu.se/en/about-uu/join-us/jobs-and-vacancies
+    - name: NTNU
+      city: Trondheim
+      country: Norway
+      urls:
+        - https://www.ntnu.edu/vacancies
+    - name: CSIRO
+      city: ""
+      country: Australia
+      urls:
+        - https://jobs.csiro.au/search/?q=phd&locationsearch=
+    - name: UniJobs Australia
+      city: ""
+      country: Australia
+      urls:
+        - https://www.timeshighereducation.com/unijobs/listings/australia/?keywords=phd+machine+learning
+        - https://www.timeshighereducation.com/unijobs/listings/australia/?keywords=phd+bioinformatics
+        - https://www.timeshighereducation.com/unijobs/listings/australia/?keywords=phd+scholarship
+
+linkedin:
+  enabled: true
+  # Guest job search API (no login). Keep delay high to avoid 429s.
+  delay_seconds: 3.5
+  past_seconds: 2592000  # last 30 days
+  pages: 1
+  searches:
+    - keywords: PhD position
+      location: Germany
+    - keywords: Doktorand
+      location: Germany
+    - keywords: Doctoral researcher machine learning
+      location: Germany
+    - keywords: PhD machine learning
+      location: Stuttgart
+    - keywords: PhD bioinformatics
+      location: Germany
+    - keywords: PhD student
+      location: Switzerland
+    - keywords: PhD position
+      location: Luxembourg
+    - keywords: PhD position
+      location: Netherlands
+    - keywords: PhD studentship machine learning
+      location: United Kingdom
+    - keywords: PhD machine learning
+      location: Europe
+    - keywords: PhD bioinformatics
+      location: Europe
+    - keywords: PhD position
+      location: Australia
+    - keywords: PhD machine learning
+      location: Australia
+    - keywords: PhD student
+      location: Canada
+    - keywords: PhD machine learning
+      location: Canada
+
+nature_careers:
+  enabled: true
+  search_url: "https://www.nature.com/naturecareers/jobs"
+  keywords:
+    - PhD machine learning
+    - PhD bioinformatics
+    - PhD computational biology
+    - PhD machine learning Australia
+    - PhD bioinformatics Australia
+    - PhD machine learning Canada
+    - PhD bioinformatics Canada

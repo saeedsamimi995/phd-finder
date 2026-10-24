@@ -1,0 +1,30 @@
+# Local data and generated applications
+data/
+output/
+
+# Secrets and local env
+.env
+.env.*
+!.env.example
+config/gmail_credentials.json
+**/gmail_token.json
+
+# Personal applicant config and letter (copy from *.example.*)
+config/profile.yaml
+phd_finder/docs/templates/cover_letter.txt.j2
+
+# Personal documents (CVs, manuscript, etc.)
+/*.pdf
+personal/
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+*.xlsx.tmp
+*.csv.tmp
+*.tmp
+scripts/_*.html
+scripts/probe_*.py
+scripts/refresh_*.py

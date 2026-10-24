@@ -1,0 +1,95 @@
+# Copy this file to config/profile.yaml and fill in your details.
+# profile.yaml is gitignored so your personal data stays local.
+
+applicant:
+  full_name: Your Name
+  email: you@example.com
+  phone: "+00 000 000 0000"
+  address: "Your city, Country"
+  nationality: YourNationality
+  highest_degree: M.Sc. in Your Field
+  university: Your University
+  thesis_title: Your thesis title
+  languages:
+    - English (fluent)
+  profiles:
+    linkedin: https://www.linkedin.com/in/your-handle
+    github: https://github.com/your-handle
+    google_scholar: https://scholar.google.com/
+
+# Optional facts for OpenAI letter tailoring (llm.py). Keep them short and true.
+letter_facts:
+  - "One concrete research or project fact"
+  - "Another publication or methods note if you have one"
+skills_summary: "Python, your main libraries, domain tools"
+
+# Folder with transcripts, recommendation letters, etc.
+about_apply_dir: "D:\\path\\to\\your\\documents"
+cv_variants:
+  ai: "D:\\path\\to\\your\\CV_ai.pdf"
+  bio: "D:\\path\\to\\your\\CV_bio.pdf"
+  default: "D:\\path\\to\\your\\CV.pdf"
+assets:
+  thesis_summary: "D:\\path\\to\\your\\thesis_summary.pdf"
+  personal_details: "D:\\path\\to\\your\\personal_details.pdf"
+  manuscript: "D:\\path\\to\\your\\manuscript.pdf"
+  msc_transcript: "D:\\path\\to\\your\\msc_transcript.pdf"
+  msc_diploma: "D:\\path\\to\\your\\msc_diploma.pdf"
+  bsc_transcript: "D:\\path\\to\\your\\bsc_transcript.pdf"
+  recommendation_bundle: "D:\\path\\to\\your\\recommendation_letters.pdf"
+applied_history_xlsx: "D:\\path\\to\\your\\Applied Positions.xlsx"
+
+# Search phrases for boards that take a free-text query
+search_queries:
+  - PhD machine learning
+  - PhD your-field keyword
+  - Doktorand your-field
+
+# Topic matching tracks (rename/replace for your career)
+keyword_tracks:
+  track_one:
+    weight: 1.0
+    keywords:
+      - keyword one
+      - keyword two
+  track_two:
+    weight: 0.95
+    keywords:
+      - another keyword
+
+region_weights:
+  stuttgart: 1.0
+  germany: 0.85
+  switzerland_luxembourg: 0.70
+  europe: 0.50
+  australia: 0.30
+  canada: 0.30
+
+stuttgart_hotspot_cities:
+  - stuttgart
+  - tuebingen
+  - tübingen
+  - karlsruhe
+  - heilbronn
+  - ludwigsburg
+  - esslingen
+  - reutlingen
+  - ulm
+  - heidelberg
+  - mannheim
+
+exclude_countries:
+  - United States
+  - USA
+  - US
+  - United States of America
+  - Mexico
+
+pipeline:
+  top_n_per_day: 15
+  min_topic_score: 0.12
+  require_open_deadline: true
+  treat_until_filled_as_open: true
+  auto_apply: true
+  auto_apply_email: true
+  auto_apply_min_score: 0.15

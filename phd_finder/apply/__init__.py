@@ -1,0 +1,1 @@
+"""Approved email sending."""
